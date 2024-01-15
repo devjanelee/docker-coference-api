@@ -1,14 +1,14 @@
 import json
 import requests
 
-from .keys import PEXELS_API_KEY, OPEN_WEATHER_API_KEY
+from .keys import PEXELS_API_KEY, WEATHER_API_KEY
 
 
 def get_weather_data(city, state):
     params = {
         "q": f"{city},{state},US",
         "limit": 1,
-        "appid": OPEN_WEATHER_API_KEY,
+        "appid": WEATHER_API_KEY,
     }
     url = "http://api.openweathermap.org/geo/1.0/direct"
     response = requests.get(url, params=params)
@@ -23,7 +23,7 @@ def get_weather_data(city, state):
     params = {
         "lat": latitude,
         "lon": longitude,
-        "appid": OPEN_WEATHER_API_KEY,
+        "appid": WEATHER_API_KEY,
         "units": "imperial",
     }
     url = "https://api.openweathermap.org/data/2.5/weather"
